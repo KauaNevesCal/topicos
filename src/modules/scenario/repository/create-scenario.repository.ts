@@ -11,6 +11,6 @@ export class CreateScenarioRepository {
         const scenario = await this.prisma.scenario.create({
             data,
         });
-        return scenario;
+        return scenario; 
     }
 }
