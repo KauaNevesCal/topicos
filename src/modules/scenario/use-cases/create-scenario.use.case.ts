@@ -13,6 +13,7 @@ export class CreateScenarioUseCase {
     async execute(data: CreateScenarioDto) {
         try {
             const scenario = await this.createScenarioRepository.create(data);
+            this.logger.log('Scenario Created: $(scenario.title)');
             return scenario;
         } catch (error) {
             this.logger.error(error);
