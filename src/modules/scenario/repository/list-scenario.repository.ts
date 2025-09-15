@@ -4,11 +4,11 @@ import { PrismaService } from "src/shared/databases/prisma.database";
 
 
 @Injectable()
-export class ListScenarioRepository{
-     constructor(private readonly prisma: PrismaService) {}
+export class ListScenarioRepository {
+    constructor(private readonly prisma: PrismaService) { }
 
-     async list () {
+    async list() {
         const scenario = await this.prisma.scenario.findMany()
-            return scenario; 
-        }   
+        return scenario;
+    }
 }

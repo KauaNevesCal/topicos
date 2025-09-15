@@ -8,11 +8,11 @@ export class UpdateScenarioUseCase {
     constructor(
         private readonly updateScenarioRepository: UpdateScenarioRepository,
         private readonly logger: Logger,
-    ) {}
+    ) { }
 
-    async update(id:string, data: UpdateScenarioDto) {
+    async update(id: string, data: UpdateScenarioDto) {
         try {
-            const scenario = await this.updateScenarioRepository.update(id,data);
+            const scenario = await this.updateScenarioRepository.update(id, data);
             this.logger.log("Scenario updated successfully");
             return scenario;
         } catch (error) {

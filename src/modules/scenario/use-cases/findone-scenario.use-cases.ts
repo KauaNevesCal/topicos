@@ -7,9 +7,9 @@ export class FindOneScenarioUseCase {
     constructor(
         private readonly findoneScenarioRepository: FindOneScenarioRepository,
         private readonly logger: Logger,
-    ) {}
+    ) { }
 
-    async findone(id:string) {
+    async findone(id: string) {
         try {
             const scenario = await this.findoneScenarioRepository.findone(id);
             this.logger.log("Scenario found successfully");

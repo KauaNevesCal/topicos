@@ -6,9 +6,9 @@ import { PrismaService } from "../../../shared/databases/prisma.database";
 export class ListScenarioRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async list(){
+    async list() {
         const scenario = await this.prisma.scenario.findMany();
-        if (!scenario) {throw new NotFoundException("Scenario not found");}
+        if (!scenario) { throw new NotFoundException("Scenario not found"); }
         return scenario;
     }
 }

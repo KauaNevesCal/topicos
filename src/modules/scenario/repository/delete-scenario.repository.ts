@@ -6,7 +6,7 @@ import { PrismaService } from "../../../shared/databases/prisma.database";
 export class DeleteScenarioRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async delete(id:string) {
+    async delete(id: string) {
         const scenario = await this.prisma.scenario.delete({ where: { id } });
         return scenario;
     }

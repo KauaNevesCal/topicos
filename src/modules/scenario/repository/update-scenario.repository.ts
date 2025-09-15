@@ -7,7 +7,7 @@ import { UpdateScenarioDto } from "../dto/update-scenario.dto";
 export class UpdateScenarioRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async update(id:string, data: UpdateScenarioDto) {
+    async update(id: string, data: UpdateScenarioDto) {
         const scenario = await this.prisma.scenario.update({
             where: { id },
             data

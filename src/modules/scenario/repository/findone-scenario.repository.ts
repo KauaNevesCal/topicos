@@ -6,7 +6,7 @@ import { PrismaService } from "../../../shared/databases/prisma.database";
 export class FindOneScenarioRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async findone(id:string) {
+    async findone(id: string) {
         const scenario = await this.prisma.scenario.findUnique({ where: { id } });
         return scenario;
     }

@@ -9,16 +9,16 @@ export class CreateScenarioUseCase {
     constructor(
         private readonly createScenarioRepository: CreateScenarioRepository,
         private readonly logger: Logger,
-    ){}
+    ) { }
 
     async execute(data: CreateScenarioDto) {
-            try {
-                const scenario = await this.createScenarioRepository.create(data);
-                this.logger.log('Scenario created: ${scenario.title');
-                return scenario;
-            } catch (error) {
-                this.logger.error(error);
-                throw error;
-            }
+        try {
+            const scenario = await this.createScenarioRepository.create(data);
+            this.logger.log('Scenario created: ${scenario.title');
+            return scenario;
+        } catch (error) {
+            this.logger.error(error);
+            throw error;
+        }
     }
 }

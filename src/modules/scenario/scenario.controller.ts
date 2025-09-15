@@ -6,7 +6,7 @@ import { UpdateScenarioDto } from './dto/update-scenario.dto';
 
 @Controller('scenario')
 export class ScenarioController {
-  constructor(private readonly scenarioService: ScenarioService) {}
+  constructor(private readonly scenarioService: ScenarioService) { }
 
   @Post()
   create(@Body() createScenarioDto: CreateScenarioDto) {

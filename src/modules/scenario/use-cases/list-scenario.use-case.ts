@@ -7,9 +7,9 @@ export class ListScenarioUseCase {
     constructor(
         private readonly listScenarioRepository: ListScenarioRepository,
         private readonly logger: Logger,
-    ) {}
+    ) { }
 
-    async list(){
+    async list() {
         try {
             const scenario = this.listScenarioRepository.list();
             this.logger.log("Scenario listed successfully");

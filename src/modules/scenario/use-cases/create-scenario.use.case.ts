@@ -8,7 +8,7 @@ export class CreateScenarioUseCase {
     constructor(
         private readonly createScenarioRepository: CreateScenarioRepository,
         private readonly logger: Logger,
-    ){}
+    ) { }
 
     async execute(data: CreateScenarioDto) {
         try {
