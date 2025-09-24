@@ -2,6 +2,7 @@
 import { ScoreService } from './score.service';
 import { CreateScoreDto } from './dto/create-score.dto';
 import { UpdateScoreDto } from './dto/update-score.dto';
+import { Controller, Post, Body, Get, Param, Patch, Delete } from '@nestjs/common';
 
 @Controller('score')
 export class ScoreController {

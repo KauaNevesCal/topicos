@@ -1,26 +1,37 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateScoreDto } from './dto/create-score.dto';
 import { UpdateScoreDto } from './dto/update-score.dto';
+import { CreateScoreUseCase, ListScoreUseCase, DeleteScoreUseCase, FindOneScoreUseCase, UpdateScoreUseCase } from './use-cases';
 
 @Injectable()
 export class ScoreService {
-  create(createScoreDto: CreateScoreDto) {
-    return 'This action adds a new score';
+  constructor(
+    private readonly createScoreUseCase: CreateScoreUseCase,
+    private readonly listScoreUseCase: ListScoreUseCase,
+    private readonly findoneScoreUseCase: FindOneScoreUseCase,
+    private readonly deleteScoreUseCase: DeleteScoreUseCase,
+    private readonly updateScoreUseCase: UpdateScoreUseCase
+  ) {}
+
+  create(data: CreateScoreDto) {
+    return this.createScoreUseCase.execute(data);
   }
 
   findAll() {
-    return `This action returns all score`;
+    return this.listScoreUseCase.list();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} score`;
+  findOne(id: string) {
+    return this.findoneScoreUseCase.findone(id);
   }
 
-  update(id: number, updateScoreDto: UpdateScoreDto) {
-    return `This action updates a #${id} score`;
+  update(id: string, data: UpdateScoreDto) {
+    return this.updateScoreUseCase.update(id, data);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} score`;
+  remove(id: string) {
+    return this.deleteScoreUseCase.delete(id);
   }
 }
