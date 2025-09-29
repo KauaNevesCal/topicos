@@ -7,9 +7,9 @@ export class ListCriterionUseCase {
     constructor(
         private readonly listCriterionRepository: ListCriterionRepository,
         private readonly logger: Logger,
-    ) {}
+    ) { }
 
-    async list(){
+    async list() {
         try {
             const criterion = this.listCriterionRepository.list();
             this.logger.log("Criterion listed successfully");
