@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { CriterionService } from './criterion.service';
 import { CreateCriterionDto } from './dto/create-criterion.dto';
@@ -19,16 +20,16 @@ export class CriterionController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.criterionService.findOne(+id);
+    return this.criterionService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCriterionDto: UpdateCriterionDto) {
-    return this.criterionService.update(+id, updateCriterionDto);
+    return this.criterionService.update(id, updateCriterionDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.criterionService.remove(+id);
+    return this.criterionService.remove(id);
   }
 }

@@ -1,26 +1,35 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateCriterionDto } from './dto/create-criterion.dto';
 import { UpdateCriterionDto } from './dto/update-criterion.dto';
+import { CreateCriterionUseCase, ListCriterionUseCase, DeleteCriterionUseCase, FindOneCriterionUseCase, UpdateCriterionUseCase } from './use-cases';
 
 @Injectable()
 export class CriterionService {
-  create(createCriterionDto: CreateCriterionDto) {
-    return 'This action adds a new criterion';
+  constructor(private readonly createCriterionUseCase: CreateCriterionUseCase, 
+    private readonly listCriterionUseCase: ListCriterionUseCase, 
+    private readonly findoneCriterionUseCase: FindOneCriterionUseCase,
+    private readonly deleteCriterionUseCase: DeleteCriterionUseCase,
+    private readonly updateCriterionUseCase: UpdateCriterionUseCase) { }
+  
+  create(data: CreateCriterionDto) {
+    return this.createCriterionUseCase.execute(data);
   }
 
   findAll() {
-    return `This action returns all criterion`;
+    return this.listCriterionUseCase.list();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} criterion`;
+  findOne(id: string) {
+    return this.findoneCriterionUseCase.findone(id);
   }
 
-  update(id: number, updateCriterionDto: UpdateCriterionDto) {
-    return `This action updates a #${id} criterion`;
+  update(id: string, data: UpdateCriterionDto) {
+    return this.updateCriterionUseCase.update(id, data);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} criterion`;
+  remove(id: string) {
+    return this.deleteCriterionUseCase.delete(id);
   }
 }

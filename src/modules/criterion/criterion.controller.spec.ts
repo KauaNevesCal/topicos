@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
 import { CriterionController } from './criterion.controller';
 import { CriterionService } from './criterion.service';

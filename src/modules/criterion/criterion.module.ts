@@ -1,9 +1,17 @@
-import { Module } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { Logger, Module } from '@nestjs/common';
+import * as UseCases from './use-cases';
+import * as Repositories from './repository';
+import { sharedModule } from 'src/shared/shared.module';
 import { CriterionService } from './criterion.service';
 import { CriterionController } from './criterion.controller';
 
+const useCases = Object.values(UseCases);
+const repositories = Object.values(Repositories);
+
 @Module({
+  imports: [sharedModule],
   controllers: [CriterionController],
-  providers: [CriterionService],
+  providers: [CriterionService, ...useCases, ...repositories, Logger],
 })
 export class CriterionModule {}
