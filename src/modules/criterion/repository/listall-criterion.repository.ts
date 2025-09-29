@@ -6,9 +6,9 @@ import { PrismaService } from "../../../shared/databases/prisma.database";
 export class ListCriterionRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async list(){
-        const criterion = await this.prisma.criterion.findMany();
-        if (!criterion) {throw new NotFoundException("Criterion not found");}
+    async list() {
+        const criterion = await this.prisma.option.findMany();
+        if (!criterion) { throw new NotFoundException("Criterion not found"); }
         return criterion;
     }
 }
