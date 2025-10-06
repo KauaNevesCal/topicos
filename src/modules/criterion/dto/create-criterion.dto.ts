@@ -3,5 +3,4 @@ export class CreateCriterionDto {
     name: string;
     weight: number;
     active: boolean;
-    createdAt: Date;
 }
